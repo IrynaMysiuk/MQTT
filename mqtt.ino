@@ -5,8 +5,8 @@
 #include "DHTesp.h"
 DHTesp dht;
 
-const char *ssid = "PointNet_05E4"; 
-const char *password = "dfvt55tr"; 
+const char *ssid = "your_wifi_name"; 
+const char *password = "your_wifi_password"; 
 
 const char *mqtt_broker = "perfect-politician.cloudmqtt.com";
 const char *topic = "Feia_test";
