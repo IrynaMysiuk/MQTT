@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as s,a as o}from"./index-e3fd19ff.js";const c={},n={class:"about d-flex flex-column"},_=o("h1",null,"Temp floor control application",-1),a=o("p",{class:"col-4"},"To satisfy needs of lazy people, who wants to control their floor temperature from phone",-1),l=[_,a];function r(i,f){return t(),s("div",n,l)}const d=e(c,[["render",r]]);export{d as default};

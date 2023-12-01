@@ -1,0 +1,25 @@
+{
+    "hotspot": {
+        "name":"esp32-ap",
+        "ip": "10.10.0.1",
+        "mask": "255.255.255.0",
+        "login": "admin",
+        "password": "12345678"
+    },
+    "wifi": {
+        "ssid":"HUAWEI P20 Pro",
+        "password": ""
+    },
+    "mqtt": {
+        "serverPath": "perfect-politician.cloudmqtt.com",
+        "username": "gelphadi",
+        "password": "",
+        "port": 1883
+    },
+    "floorControl": {
+        "temperatureTopic": "floor/temp",
+        "tapTopic": "floor/tap",
+        "minTemperature": 20,
+        "maxTemperature": 30
+    }
+}
