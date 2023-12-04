@@ -10,8 +10,8 @@ const char *password = "your_wifi_password";
 
 const char *mqtt_broker = "perfect-politician.cloudmqtt.com";
 const char *topic = "Feia_test";
-const char *mqtt_username = "gelphadi";
-const char *mqtt_password = "oYMgWJETz_0N";
+const char *mqtt_username = "mqtt_username";
+const char *mqtt_password = "mqtt_password";
 const int mqtt_port = 1883;
 
 WiFiClient espClient;
@@ -26,7 +26,7 @@ void setup() {
   delay(100);
   client.setServer(mqtt_broker, mqtt_port);
 
-  client.setCallback(callback);  //upload
+  client.setCallback(callback);
 
   while (!client.connected()) {
     String client_id = "esp32-client-";
