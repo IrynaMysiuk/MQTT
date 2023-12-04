@@ -3,14 +3,15 @@
 #include <PubSubClient.h>
 #include "wifi.connect.h"
 #include <ESP32Servo.h>
+#include "secrets.h"
 
 //Servo
 Servo myServo;
 int servoPin = 13;
 
 // WiFi
-const char *ssid = "Virus";         // Enter your WiFi name
-const char *password = "pokemon7";  // Enter WiFi password
+const char *ssid = WIFI_SSID;         // Enter your WiFi name
+const char *password = WIFI_PASSWORD;  // Enter WiFi password
 
 // MQTT Broker
 const char *mqtt_broker = "perfect-politician.cloudmqtt.com";
