@@ -3,7 +3,6 @@
 #include <PubSubClient.h>
 #include "wifi.connect.h"
 #include <ESP32Servo.h>
-#include "secrets.h"
 
 //Servo
 Servo myServo;
@@ -54,6 +53,9 @@ void setup() {
 
   // Publish and subscribe
   client.subscribe(topic);
+  // client.subscribe("Feia_test");
+  client.subscribe("floor/temperature");
+  client.subscribe("floor/humidity");
 }
 
 void callback(char *topic, byte *payload, unsigned int length) {
@@ -68,6 +70,7 @@ void callback(char *topic, byte *payload, unsigned int length) {
   if (strcmp(topic, "floor/tap") == 0) {
     myServo.write(payload[0]);
   }
+
   Serial.println();
   Serial.println("-----------------------");
 }
