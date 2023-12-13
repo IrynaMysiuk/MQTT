@@ -49,9 +49,6 @@ void setup() {
 }
 
 void callback(char *topic, byte *payload, unsigned int length) {
-  Serial.print("Message arrived in topic: ");
-  Serial.println(topic);
-  Serial.print("Message:");
   for (int i = 0; i < length; i++) {
     Serial.print((char)payload[i]);
   }
@@ -60,24 +57,38 @@ void callback(char *topic, byte *payload, unsigned int length) {
 }
 
 void loop() {
-  float temperature = dht.getTemperature();
+ float temperature = dht.getTemperature();
   float humidity = dht.getHumidity();
-
   Serial.print("Temperature: ");
   Serial.println(temperature);
+  Serial.print("Message arrived in topic: ");
+  Serial.println(topic);
+  Serial.print("Message: ");
+
+  char message[100];
+  dtostrf(temperature, 0, 0, message);
+  sprintf(message, "%f", temperature);
+  client.publish("floor/temperature", message);
+  Serial.print("Sending message for temperature: ");
+  Serial.println(message);
+
   Serial.print("Humidity: ");
   Serial.println(humidity);
+  Serial.print("Message arrived in topic: ");
+  Serial.println(topic);
+  Serial.print("Message: ");
+
+  char messageHumidity[100];
+  dtostrf(humidity, 0, 0, messageHumidity);
+  sprintf(messageHumidity, "%f", humidity);
+  client.publish("floor/humidity", messageHumidity);
+  Serial.print("Sending message for humidity: ");
+  Serial.println(messageHumidity);
 
   delay(2000);
   String messageTemp;
 
-  char message[100];
-  sprintf(message, "%f", temperature);
-  client.publish("floor/temperature", message);
-  Serial.print("Sending message for tap: ");
-  Serial.println(message);
-
-  client.publish(topic, "MY TEMPERATURE");
+  client.publish(topic, message);
   client.subscribe(topic);
   client.subscribe("test");
   client.loop();
